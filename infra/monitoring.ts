@@ -29,7 +29,7 @@ const modelHttpErrorsQuery = (product: "go" | "zen") => {
   const filters = [
     { column: "model", op: "exists" },
     { column: "event_type", op: "=", value: "completions" },
-    { column: "user_agent", op: "contains", value: "opencode" },
+    { column: "user_agent", op: "contains", value: "renx" },
     { column: "isGoTier", op: "=", value: product === "go" ? "true" : "false" },
   ]
 
@@ -53,7 +53,7 @@ const modelHttpErrorsQuery = (product: "go" | "zen") => {
 const providerHttpErrorsQuery = (product: "go" | "zen") => {
   const filters = [
     { column: "provider", op: "exists" },
-    { column: "user_agent", op: "contains", value: "opencode" },
+    { column: "user_agent", op: "contains", value: "renx" },
     { column: "isGoTier", op: "=", value: product === "go" ? "true" : "false" },
   ]
 
@@ -177,7 +177,7 @@ new honeycomb.Trigger("IncreasedFreeTierRequests", {
     calculations: [{ op: "COUNT" }],
     filters: [
       { column: "event_type", op: "=", value: "completions" },
-      { column: "user_agent", op: "contains", value: "opencode" },
+      { column: "user_agent", op: "contains", value: "renx" },
       { column: "isFreeTier", op: "=", value: "true" },
     ],
     timeRange: 3600,

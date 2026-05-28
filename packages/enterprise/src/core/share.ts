@@ -1,6 +1,6 @@
-import { Message, Model, Part, Session, SnapshotFileDiff } from "@opencode-ai/sdk/v2"
-import { fn } from "@opencode-ai/core/util/fn"
-import { iife } from "@opencode-ai/core/util/iife"
+import { Message, Model, Part, Session, SnapshotFileDiff } from "@renx/sdk/v2"
+import { fn } from "@renx/core/util/fn"
+import { iife } from "@renx/core/util/iife"
 import z from "zod"
 import { Storage } from "./storage"
 

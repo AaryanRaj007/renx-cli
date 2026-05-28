@@ -4,7 +4,7 @@ const retryAfterSeconds = 15 * 60
 //   type: "error",
 //   error: {
 //     type: "FreeUsageLimitError",
-//     message: "Free usage exceeded, subscribe to Go https://opencode.ai/go",
+//     message: "Free usage exceeded, subscribe to Go https://renx.ai/go",
 //   },
 //   metadata: {},
 // }

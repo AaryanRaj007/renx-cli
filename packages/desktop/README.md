@@ -1,6 +1,6 @@
-# OpenCode Desktop
+# Renx Desktop
 
-The OpenCode Desktop app, built with Electron.
+The Renx Desktop app, built with Electron.
 
 ## Development
 
