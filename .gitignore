@@ -29,3 +29,13 @@ UPCOMING_CHANGELOG.md
 logs/
 *.bun-build
 tsconfig.tsbuildinfo
+
+# Added rules
+node_modules/
+.next/
+dist/
+.env
+*.log
+bun.lockb
+.bun/
+
