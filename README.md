@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/renx-logo.svg" alt="Renx logo" width="200">
+  <img src="renx-logo.svg" alt="Renx logo" width="200">
 </p>
 
 <h3 align="center">Renx</h3>
