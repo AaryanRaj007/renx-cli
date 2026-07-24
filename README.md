@@ -7,135 +7,97 @@
     </picture>
   </a>
 </p>
-<p align="center">Talk to any AI model from your terminal. Free, open source, no lock-in.</p>
+
+<h3 align="center">Renx</h3>
+<p align="center">Any AI model. One terminal. Zero lock-in.</p>
+
 <p align="center">
   <a href="https://renx.ai/discord"><img alt="Discord" src="https://img.shields.io/discord/1391832426048651334?style=flat-square&label=discord" /></a>
   <a href="https://www.npmjs.com/package/renx-ai"><img alt="npm" src="https://img.shields.io/npm/v/renx-ai?style=flat-square" /></a>
   <a href="https://github.com/anomalyco/renx/actions/workflows/publish.yml"><img alt="Build status" src="https://img.shields.io/github/actions/workflow/status/anomalyco/renx/publish.yml?style=flat-square&branch=dev" /></a>
 </p>
 
-<p align="center">
-  <a href="README.md">English</a> |
-  <a href="README.zh.md">简体中文</a> |
-  <a href="README.zht.md">繁體中文</a> |
-  <a href="README.ko.md">한국어</a> |
-  <a href="README.de.md">Deutsch</a> |
-  <a href="README.es.md">Español</a> |
-  <a href="README.fr.md">Français</a> |
-  <a href="README.it.md">Italiano</a> |
-  <a href="README.da.md">Dansk</a> |
-  <a href="README.ja.md">日本語</a> |
-  <a href="README.pl.md">Polski</a> |
-  <a href="README.ru.md">Русский</a> |
-  <a href="README.bs.md">Bosanski</a> |
-  <a href="README.ar.md">العربية</a> |
-  <a href="README.no.md">Norsk</a> |
-  <a href="README.br.md">Português (Brasil)</a> |
-  <a href="README.th.md">ไทย</a> |
-  <a href="README.tr.md">Türkçe</a> |
-  <a href="README.uk.md">Українська</a> |
-  <a href="README.bn.md">বাংলা</a> |
-  <a href="README.gr.md">Ελληνικά</a> |
-  <a href="README.vi.md">Tiếng Việt</a>
-</p>
-
 [![Renx Terminal UI](packages/web/src/assets/lander/screenshot.png)](https://renx.ai)
 
 ---
 
-### Installation
+## Get started
 
 ```bash
-# YOLO
+# quick install
 curl -fsSL https://renx.ai/install | bash
 
-# Package managers
-npm i -g renx@latest               # or bun/pnpm/yarn
-scoop install renx                  # Windows
-choco install renx                  # Windows
-brew install anomalyco/tap/renx     # macOS and Linux (recommended, always up to date)
-brew install renx                   # macOS and Linux (official brew formula, updated less)
-sudo pacman -S renx                 # Arch Linux (Stable)
-paru -S renx-bin                    # Arch Linux (Latest from AUR)
-mise use -g renx                    # Any OS
-nix run nixpkgs#renx               # or github:anomalyco/renx for latest dev branch
+# or pick your package manager
+npm i -g renx@latest              # also works with bun/pnpm/yarn
+brew install anomalyco/tap/renx   # macOS / Linux — kept current
+brew install renx                 # macOS / Linux — official formula, slower to update
+scoop install renx                # Windows
+choco install renx                # Windows
+sudo pacman -S renx                # Arch (stable)
+paru -S renx-bin                   # Arch (AUR, latest)
+mise use -g renx                   # any OS, via mise
+nix run nixpkgs#renx              # Nix, or github:anomalyco/renx for the dev branch
 ```
 
 > [!TIP]
-> Remove versions older than 0.1.x before installing.
+> Uninstall anything older than `0.1.x` before installing fresh.
 
-### Desktop App (BETA)
-
-Renx is also available as a desktop application. Download directly from the [releases page](https://github.com/anomalyco/renx/releases) or [renx.ai/download](https://renx.ai/download).
-
-| Platform              | Download                           |
-| --------------------- | ---------------------------------- |
-| macOS (Apple Silicon) | `renx-desktop-mac-arm64.dmg`       |
-| macOS (Intel)         | `renx-desktop-mac-x64.dmg`        |
-| Windows               | `renx-desktop-windows-x64.exe`    |
-| Linux                 | `.deb`, `.rpm`, or `.AppImage`     |
+**Where it installs:** the script checks, in order, `$RENX_INSTALL_DIR` → `$XDG_BIN_DIR` → `$HOME/bin` (if usable) → `$HOME/.renx/bin`.
 
 ```bash
-# macOS (Homebrew)
-brew install --cask renx-desktop
-# Windows (Scoop)
-scoop bucket add extras; scoop install extras/renx-desktop
-```
-
-#### Installation Directory
-
-The install script respects the following priority order for the installation path:
-
-1. `$RENX_INSTALL_DIR` - Custom installation directory
-2. `$XDG_BIN_DIR` - XDG Base Directory Specification compliant path
-3. `$HOME/bin` - Standard user binary directory (if it exists or can be created)
-4. `$HOME/.renx/bin` - Default fallback
-
-```bash
-# Examples
+# override examples
 RENX_INSTALL_DIR=/usr/local/bin curl -fsSL https://renx.ai/install | bash
 XDG_BIN_DIR=$HOME/.local/bin curl -fsSL https://renx.ai/install | bash
 ```
 
-### Agents
+## Desktop app (beta)
 
-Renx includes two built-in agents you can switch between with the `Tab` key.
+Prefer a window over a terminal? Grab a build from the [releases page](https://github.com/anomalyco/renx/releases) or [renx.ai/download](https://renx.ai/download).
 
-- **build** - Default, full-access agent for development work
-- **plan** - Read-only agent for analysis and code exploration
-  - Denies file edits by default
-  - Asks permission before running bash commands
-  - Ideal for exploring unfamiliar codebases or planning changes
+| Platform | File |
+|---|---|
+| macOS (Apple Silicon) | `renx-desktop-mac-arm64.dmg` |
+| macOS (Intel) | `renx-desktop-mac-x64.dmg` |
+| Windows | `renx-desktop-windows-x64.exe` |
+| Linux | `.deb`, `.rpm`, or `.AppImage` |
 
-Also included is a **general** subagent for complex searches and multistep tasks.
-This is used internally and can be invoked using `@general` in messages.
+```bash
+brew install --cask renx-desktop         # macOS
+scoop bucket add extras; scoop install extras/renx-desktop   # Windows
+```
 
-Learn more about [agents](https://renx.ai/docs/agents).
+## How you work with it
 
-### Documentation
+Renx ships with two agents, swapped with `Tab`:
 
-For more info on how to configure Renx, [**head over to our docs**](https://renx.ai/docs).
+- **build** — full read/write access, for actually shipping changes
+- **plan** — read-only; walks the codebase and proposes changes without touching files, and asks before running any shell command. Good for getting oriented in something unfamiliar before you let it edit anything.
 
-### Contributing
+There's also a **general** subagent for open-ended, multi-step searches — call it directly with `@general` in a message.
 
-If you're interested in contributing to Renx, please read our [contributing docs](./CONTRIBUTING.md) before submitting a pull request.
+Full configuration reference: [renx.ai/docs](https://renx.ai/docs).
 
-### Building on Renx
+## Contributing
 
-If you are working on a project that's related to Renx and is using "renx" as part of its name, for example "renx-dashboard" or "renx-mobile", please add a note to your README to clarify that it is not built by the Renx team and is not affiliated with us in any way.
+Read [CONTRIBUTING.md](./CONTRIBUTING.md) before opening a pull request.
 
-### FAQ
+## Building something on top of Renx?
 
-#### How is this different from Claude Code?
+If your project uses "renx" in its name (e.g. `renx-dashboard`, `renx-mobile`), please note in your README that it isn't built or maintained by the Renx team.
 
-It's very similar to Claude Code in terms of capability. Here are the key differences:
+## FAQ
 
-- 100% open source
-- Not coupled to any provider. Although we recommend the models we provide through [Renx Zen](https://renx.ai/zen), Renx can be used with Claude, OpenAI, Google, or even local models. As models evolve, the gaps between them will close and pricing will drop, so being provider-agnostic is important.
-- Built-in opt-in LSP support
-- A focus on TUI. Renx is built by neovim users and the creators of [terminal.shop](https://terminal.shop); we are going to push the limits of what's possible in the terminal.
-- A client/server architecture. This, for example, can allow Renx to run on your computer while you drive it remotely from a mobile app, meaning that the TUI frontend is just one of the possible clients.
+**What makes Renx different?**
 
----
+<!-- TODO: replace with your actual differentiators — this is where the previous
+     draft carried over claims (team background, specific comparisons) that
+     described someone else's project rather than yours. Worth answering
+     honestly here: what does Renx do that the alternatives don't, or do
+     differently? A few real angles to consider, if true for your project:
+     - which providers/models it supports and how switching between them works
+     - what the client/server split (if you have one) actually enables
+     - anything genuinely distinct about the terminal UI itself -->
 
-**Join our community** [Discord](https://discord.gg/renx) | [X.com](https://x.com/renx)
+## Community
+
+[Discord](https://discord.gg/renx) · [X.com](https://x.com/renx)
