@@ -1,10 +1,6 @@
 <p align="center">
   <a href="https://renx.ai">
-    <picture>
-      <source srcset="packages/console/app/src/asset/logo-ornate-dark.svg" media="(prefers-color-scheme: dark)">
-      <source srcset="packages/console/app/src/asset/logo-ornate-light.svg" media="(prefers-color-scheme: light)">
-      <img src="packages/console/app/src/asset/logo-ornate-light.svg" alt="Renx logo">
-    </picture>
+    <img src="assets/renx-logo.svg" alt="Renx logo" width="200">
   </a>
 </p>
 
