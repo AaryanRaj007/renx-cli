@@ -22,9 +22,31 @@ Two agents, switchable with `Tab`:
 
 Plus a **general** subagent for open-ended, multi-step tasks.
 
+```mermaid
+flowchart LR
+    U[You, in the terminal] --> T{Tab}
+    T --> B[build agent<br/>read/write]
+    T --> P[plan agent<br/>read-only, asks first]
+    B & P --> G[general subagent<br/>multi-step tasks]
+    B & P --> M[Any provider:<br/>Anthropic, OpenAI, local, ...]
+```
+
 ## Status
 
 Early development. Nothing here is published or ready to run yet — check back, or watch/star the repo to follow progress.
+
+## Run from source
+
+Requires [Bun](https://bun.sh) 1.3 or newer.
+
+```bash
+bun install
+bun run dev
+```
+
+## Credits
+
+Renx is built on [opencode](https://github.com/anomalyco/opencode), the open-source AI coding agent, and keeps its MIT licence. See [LICENSE](LICENSE).
 
 ## Contributing
 
