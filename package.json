@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/anomalyco/renx"
+    "url": "https://github.com/AaryanRaj007/renx-cli"
   },
   "license": "MIT",
   "prettier": {
