@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # renx Korean IME Fix Installer
-# https://github.com/anomalyco/renx/issues/14371
+# https://github.com/anomalyco/opencode/issues/14371
 #
 # Patches renx to prevent Korean (and other CJK) IME last character
 # truncation when pressing Enter in Kitty and other terminals.
