@@ -37,10 +37,10 @@ Early development. Nothing here is published or ready to run yet — check back,
 
 ## Run from source
 
-Requires [Bun](https://bun.sh) 1.3 or newer.
+Not working yet. The monorepo is mid-rename from opencode to renx, and the root `package.json` doesn't declare the Bun workspaces yet, so `bun install` can't link the packages. Once that's fixed, it will be:
 
 ```bash
-bun install
+bun install   # needs Bun 1.3 or newer
 bun run dev
 ```
 
